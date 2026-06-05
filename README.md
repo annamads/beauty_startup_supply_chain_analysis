@@ -17,30 +17,30 @@ It is key for businesses to understand the performance of their supply chain in 
 - Tableau Public
 
 ## Dataset Description 
-- Public beauty startup supply chain dataset from Kaggle 
-- Dataset contains supply chain data for 100 product SKUs and includes 24 data fields
-    - Key fields include product type, stock levels, lead times, costs, production volumes, suppliers, carriers, routes, transportation modes, and quality metrics 
-- Product SKUs span haircare, skincare and cosmetics and use five suppliers, three carriers, three routes, and five modes of transportation 
-- Dataset allows for end to end supply chain analysis 
+- Public beauty startup supply chain dataset from Kaggle. 
+- Dataset contains supply chain data for 100 product SKUs and includes 24 data fields.
+    - Key fields include product type, stock levels, lead times, costs, production volumes, suppliers, carriers, routes, transportation modes, and quality metrics. 
+- Product SKUs span haircare, skincare and cosmetics and use five suppliers, three carriers, three routes, and five modes of transportation. 
+- Dataset allows for end to end supply chain analysis. 
 - Limitations:
-    - Gaps in dataset context leading to need for interpretation of several fields 
-    - Public created dataset may contain inaccurate, incomplete or biased data
-    - Dataset did not contain several key fields needed for more complete analysis 
+    - Gaps in dataset context leading to need for interpretation of several fields. 
+    - Public created dataset may contain inaccurate, incomplete or biased data.
+    - Dataset did not contain several key fields needed for more complete analysis. 
 
 ## Process & Workflow
 ### Cleaning & Feature Engineering: 
-- Cleaned and formatted the dataset using SQL
-    - Validated data for missing values, duplicates, consistency, and accuracy
-    - Developed data interpretations for fields as needed 
+- Cleaned and formatted the dataset using SQL.
+    - Validated data for missing values, duplicates, consistency, and accuracy.
+    - Developed data interpretations for fields as needed. 
         - Two “lead time” fields existed. Interpreted one as order fulfillment lead time and the other as procurement lead time.
         - Assumed “costs” field represented total operational costs per SKU for the entire supply chain.
         - Removed “availability” field as its meaning was ambiguous compared to “stock levels”.
         - Assumed that ‘order quantity’ represents the quantity of units requested, and used as a proxy demand metric. Average order quantity by product type represents the average number of units requested per SKU within each product type. 
-- Created a final cleaned SQL view for use in analysis
-  - Removed data fields unneeded for analysis, including customer demographics, location, and availability
-  - Formatted values and standardized column naming
+- Created a final cleaned SQL view for use in analysis.
+  - Removed data fields unneeded for analysis, including customer demographics, location, and availability.
+  - Formatted values and standardized column naming.
   - Engineered KPIs for analysis including stock to demand ratio, SKU profit, cost to revenue ratio, first pass yield, cycle time, and manufacturing cost per unit.
-    - Stock to demand ratio (S/D ratio) was calculated using stock levels and order quantity, and used to measure alignment of inventory with demand by examining the stock levels relative to the number of units ordered per SKU
+    - Stock to demand ratio (S/D ratio) was calculated using stock levels and order quantity, and used to measure alignment of inventory with demand by examining the stock levels relative to the number of units ordered per SKU.
     -  Cycle time was calculated as the total of fulfillment, procurement and manufacturing lead times. 
   - Categorized data based on key metrics to create derived columns including stock risk status, SKU profitability, quality rating, and inspection score.
     - Stock risk status was created by evaluating the S/D ratio against ranges that represented overstock, stockout, or balanced stock to demand.
@@ -50,8 +50,8 @@ It is key for businesses to understand the performance of their supply chain in 
   - Seven key SQL queries created for analysis, including procurement, manufacturing, inventory, and logistics by carrier, route and transportation mode.
 - Generated clean data tables of key metrics and KPIs for each supply chain phase
 ### Visualization & Insight Generation: 
-- Created four dashboards using Tableau to understand supply chain performance in each phase and potential bottlenecks and areas for improved efficiency and performance
-- Developed business recommendations based on key insights 
+- Created four dashboards using Tableau to understand supply chain performance in each phase and potential bottlenecks and areas for improved efficiency and performance.
+- Developed business recommendations based on key insights.
 ## Skills Demonstrated 
 - SQL including CTEs, aggregation, views, string manipulation, and data categorization 
 - Google BigQuery
@@ -125,3 +125,7 @@ Key KPIs include total SKUs, shipping cost, and shipping time.
 
 ## Conclusion 
 This project completed an analysis on the supply chain of a beauty startup in order to understand and synthesize potential bottlenecks in the four phases of the supply chain. The analysis identified several bottlenecks throughout the supply chain, including supplier quality and reliability risk, haircare production bottleneck risk, overstock and stockout risks, and areas for improvement to shipping pipelines. These findings help to provide understanding to the business on areas of improvement to the supply chain in order to increase end to end reliability, reduce risk, optimize resources, and streamline pipelines. 
+
+## Project Files
+- `sql/` -> SQL Files used for data cleaning & analysis
+- `dashboards/` -> Tableau dashboards

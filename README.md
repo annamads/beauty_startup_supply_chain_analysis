@@ -17,7 +17,8 @@ It is key for businesses to understand the performance of their supply chain in 
 - Tableau Public
 
 ## Dataset Description 
-- Public beauty startup supply chain dataset from Kaggle. 
+- Public beauty startup supply chain dataset from Kaggle.
+    - Dataset Source: [Beauty Startup Supply Chain Dataset](https://www.kaggle.com/datasets/amirmotefaker/supply-chain-dataset/data)  
 - Dataset contains supply chain data for 100 product SKUs and includes 24 data fields.
     - Key fields include product type, stock levels, lead times, costs, production volumes, suppliers, carriers, routes, transportation modes, and quality metrics. 
 - Product SKUs span haircare, skincare and cosmetics and use five suppliers, three carriers, three routes, and five modes of transportation. 

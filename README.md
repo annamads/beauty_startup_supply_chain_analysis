@@ -124,7 +124,7 @@ Key KPIs include total SKUs, shipping cost, and shipping time.
 - For a balance of shorter shipping times and cost optimization, Route B could be considered for utilization along with Carrier B and Road. 
 
 ## Conclusion 
-This project completed an analysis on the supply chain of a beauty startup in order to understand and synthesize potential bottlenecks in the four phases of the supply chain. The analysis identified several bottlenecks throughout the supply chain, including supplier quality and reliability risk, haircare production bottleneck risk, overstock and stockout risks, and areas for improvement to shipping pipelines. These findings help to provide understanding to the business on areas of improvement to the supply chain in order to increase end to end reliability, reduce risk, optimize resources, and streamline pipelines. 
+This project completed an analysis on the supply chain of a beauty startup in order to understand and synthesize potential bottlenecks in the four phases of the supply chain. The analysis identified several bottlenecks throughout the supply chain, including supplier quality and reliability risk, haircare production bottleneck risk, overstock and stockout risks, and areas for improvement to shipping pipelines. Several recommendations were given to improve supplier performance, improve production in the haircare segment, improve inventory allocation, and streamline shipping pipelines. These findings help to provide understanding to the business on areas of improvement to the supply chain in order to increase end to end reliability, reduce risk, optimize resources, and streamline pipelines. 
 
 ## Project Files
 - `sql/` -> SQL Files used for data cleaning & analysis

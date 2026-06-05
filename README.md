@@ -1,10 +1,10 @@
 # Beauty Startup Supply Chain Bottleneck Analysis 
 
 ## Tableau Dashboards 
-- Procurement Dashboard: https://public.tableau.com/views/SupplyChainBottleneckAnalysis-ProcurementDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
-- Manufacturing Dashboard: https://public.tableau.com/views/SupplyChainBottleneckAnalysis-ManufacturingDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
-- Inventory Dashboard: https://public.tableau.com/views/SupplyChainBottleneckAnalysis-InventoryDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
-- Logistics Dashboard: https://public.tableau.com/views/SupplyChainBottleneckAnalysis-LogisticsDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+- [Procurement Dashboard](https://public.tableau.com/views/SupplyChainBottleneckAnalysis-ProcurementDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) 
+- [Manufacturing Dashboard](https://public.tableau.com/views/SupplyChainBottleneckAnalysis-ManufacturingDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+- [Inventory Dashboard](https://public.tableau.com/views/SupplyChainBottleneckAnalysis-InventoryDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+- [Logistics Dashboard](https://public.tableau.com/views/SupplyChainBottleneckAnalysis-LogisticsDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ## Overview 
 This project analyzes a supply chain dataset from a beauty startup containing data on 100 product SKUs. The analysis was completed via SQL and was segmented into four phases of the supply chain, including procurement, production, inventory and order fulfillment, and logistics. Tableau was then used to create four key business insight dashboards for each phase. This project identified key operational bottlenecks within the supply chain and provides data driven insights and recommendations to improve operational efficiency and supply chain performance. 
@@ -34,13 +34,14 @@ It is key for businesses to understand the performance of their supply chain in 
     - Developed data interpretations for fields as needed 
         - Two “lead time” fields existed. Interpreted one as order fulfillment lead time and the other as procurement lead time.
         - Assumed “costs” field represented total operational costs per SKU for the entire supply chain.
-        - Removed “availability” field as its meaning was ambiguous compared to “stock levels”. 
+        - Removed “availability” field as its meaning was ambiguous compared to “stock levels”.
+        - Assumed that ‘order quantity’ represents the quantity of units requested, and used as a proxy demand metric. Average order quantity by product type represents the average number of units requested per SKU within each product type. 
 - Created a final cleaned SQL view for use in analysis
   - Removed data fields unneeded for analysis, including customer demographics, location, and availability
   - Formatted values and standardized column naming
   - Engineered KPIs for analysis including stock to demand ratio, SKU profit, cost to revenue ratio, first pass yield, cycle time, and manufacturing cost per unit.
-    - Stock to demand ratio (S/D ratio) was calculated using stock levels and order quantity.
-    - Cycle time was calculated as the total of fulfillment, procurement and manufacturing lead times. 
+    - Stock to demand ratio (S/D ratio) was calculated using stock levels and order quantity, and used to measure alignment of inventory with demand by examining the stock levels relative to the number of units ordered per SKU
+    -  Cycle time was calculated as the total of fulfillment, procurement and manufacturing lead times. 
   - Categorized data based on key metrics to create derived columns including stock risk status, SKU profitability, quality rating, and inspection score.
     - Stock risk status was created by evaluating the S/D ratio against ranges that represented overstock, stockout, or balanced stock to demand.
     - Inspection score was created by assigning inspection results to numerical values. 
@@ -104,7 +105,7 @@ Key KPIs include total SKUs, shipping cost, and shipping time.
 - Haircare demonstrates production bottleneck risk, with high production volume, poor quality metrics, and longest lead times, with a tradeoff of lowest operational cost.
 ### Inventory Management 
 - Cosmetics and haircare demonstrate overstock inefficiency, with haircare demonstrating a higher level of risk. 
-- Skincare demonstrates fulfillment bottleneck risk due to high stockout risk, large order sizes, highest level of product sold, and longer lead times. 
+- Skincare demonstrates fulfillment bottleneck risk due to high stockout risk, higher average units ordered, highest level of product sold, and longer lead times. 
 ### Logistics 
 - Route A is associated with highest SKUs & lowest cost, but longer shipping times, and Route C supports the lowest SKUs with higher cost but faster shipping, suggesting a potential priority for low cost over shipping speed. Route B supports a high number of SKUs with both moderate cost and shipping time when compared to Routes A and C. 
 - Carrier B demonstrates strongest logistical performance with highest SKUs, low cost, and fastest shipping, though KPI differences are modest between carriers. 
@@ -117,7 +118,7 @@ Key KPIs include total SKUs, shipping cost, and shipping time.
 ### Production: 
 - Investigate leading causes of poor quality metrics for haircare products and whether longer lead times stem from product rework. Haircare is a large product segment, so reduction of rework and lead times could have a large impact on cost savings and overall supply chain cycle time. 
 ### Inventory: 
-- Evaluate the potential to shift inventory allocation away from haircare products and towards skincare products to more accurately match demand. Further investigation should be completed to understand the outsized S/D ratio associated with haircare and any underlying factors. 
+- Evaluate the potential to shift inventory allocation away from haircare products and towards skincare products to better align inventory with demand. Further investigation should be completed to understand the outsized S/D ratio associated with haircare and any underlying factors. Further analysis would benefit from more complete demand-related data to validate inventory risk findings. 
 ### Logistics: 
 - To prioritize shorter shipping times, continue to utilize Carrier B and Road for the most product lines and consider shifting more product lines to Route C. The cost impact of shifting to Route C should be further evaluated to understand if the reduced shipping time outweighs the increased shipping costs associated with C. 
 - For a balance of shorter shipping times and cost optimization, Route B could be considered for utilization along with Carrier B and Road. 
